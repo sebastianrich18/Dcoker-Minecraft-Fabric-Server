@@ -1,0 +1,20 @@
+version: "3.3"
+
+services:
+  minecraft:
+    image: "gc-fabric-server:latest"
+    container_name: "fabric-mcserver"
+    environment:
+      MEMORYSIZE: "4G"
+    volumes:
+      - "/home/sib/appdata/fabric:/data:rw"
+    ports:
+        # Minecraft
+      - "25565:25565"     
+        # Dynmap 
+      - "8123:8123"
+        # Prox chat
+      - "24454:24454"
+    # The following allow `docker attach minecraft` to work
+    stdin_open: true
+    tty: true
